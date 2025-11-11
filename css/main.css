@@ -1,0 +1,314 @@
+
+:root {
+    
+    --template-color: yellow;
+    --primary-color: #0066ff;
+    --text-color: #333;
+    --bg-color: #ffffff;
+    --border-color: #ddd;
+    --hover-color: #4a90e2;
+    --card-bg: #ffffff;
+    
+   
+    --serif-font: "Times New Roman";
+    --sans-font: "Consolas";
+    --font-size: 16px;
+    
+    
+    --border-radius: 4px;
+    --box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/*.article-secondaire{
+    display: none;
+} */
+
+.main-header {
+    background-color: var(--template-color);
+    padding: 1rem 0;
+    box-shadow: var(--box-shadow);
+    margin-bottom: 2rem;
+}
+
+.main-header .navbar {
+    background-color: transparent !important;
+    box-shadow: none;
+}
+
+.main-header .navbar-brand {
+    color: var(--primary-color) !important;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.main-header .nav-link {
+    color: var(--text-color) !important;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    transition: color 0.3s ease;
+}
+
+.main-header .nav-link:hover {
+    color: var(--primary-color) !important;
+}
+
+.main-header .nav-link.active {
+    font-weight: bold;
+}
+
+
+.main-title {
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: var(--text-color);
+    margin: 2rem 0 1.5rem;
+    line-height: 1.2;
+    padding-bottom: 0.5rem;
+    border-bottom: 3px solid var(--template-color);
+}
+
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+}
+
+
+.card {
+    background-color: var(--card-bg);
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+    transition: transform 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+.card-header {
+    background-color: var(--card-bg);
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+    padding: 1.25rem;
+    border-radius: 12px 12px 0 0;
+}
+
+.card-title { font-size: 1rem !important; font-weight: 600; }
+.card-text { font-size: 0.8rem !important; }
+.card-body small, .card-body a.btn { font-size: 0.7rem !important; }
+
+
+.badge {
+    padding: 0.5em 1em;
+    font-weight: 1000;
+            /* Coins arrondis (optionnel) */
+
+
+}
+header .counter {
+    border: 2px solid #0d6efd;
+    background-color: #cfe2ff;
+    color: #0d6efd;
+    padding: 0.4em 0.8em;
+    font-weight: 600;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.btn-outline-primary {
+    border-width: 2px;
+}
+
+.btn-outline-primary:hover {
+    background-color: var(--template-color);
+    border-color: var(--template-color);
+    color: #000;
+}
+
+
+.form-label {
+    font-size: 0.875rem;
+    color: #666;
+    margin-bottom: 0.5rem;
+}
+
+.form-control, .form-select {
+    border-radius: var(--border-radius);
+    font-size: 0.875rem;
+}
+
+.form-select {
+    border: 1px solid var(--border-color);
+    padding: 0.375rem 0.75rem;
+    cursor: pointer;
+}
+
+.form-select:hover { border-color: var(--hover-color); }
+
+
+input[type="range"] {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 4px;
+    background: #e0e0e0;
+    border-radius: 2px;
+    margin: 10px 0;
+}
+
+input[type="range"]::-webkit-slider-thumb,
+input[type="range"]::-moz-range-thumb {
+    -webkit-appearance: none;
+    width: 16px;
+    height: 16px;
+    background: var(--primary-color);
+    border-radius: 50%;
+    cursor: pointer;
+    border: none;
+}
+
+input[type="color"] {
+    -webkit-appearance: none;
+    width: 32px;
+    height: 32px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    padding: 0;
+}
+
+input[type="color"]::-webkit-color-swatch-wrapper { padding: 0; }
+input[type="color"]::-webkit-color-swatch { border: none; border-radius: 3px; }
+
+
+.article-title {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.article-meta {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.article-image img {
+    width: 100%;
+    height: auto;
+    border-radius: var(--border-radius);
+}
+
+.article-summary {
+    background-color: var(--bg-color);
+    padding: 1rem;
+    border-left: 4px solid var(--primary-color);
+    margin: 1rem 0;
+}
+
+
+.main-article, .news-item {
+    position: relative;
+    overflow: hidden;
+}
+
+.main-article { height: 500px; }
+.news-item { height: 250px; }
+
+.main-article img, .news-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.main-article .content, .news-item .content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    color: white;
+    background: linear-gradient(transparent, rgba(0,0,0,0.8));
+}
+
+.main-article .content { padding: 2rem; }
+.news-item .content { padding: 1rem; }
+
+.main-article .content h2,
+.news-item .content h3 {
+    color: white;
+    margin-bottom: 1rem;
+}
+
+.news-item .content h3 { font-size: 1.1rem; }
+
+.news-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.category-tag {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    z-index: 1;
+}
+
+
+footer {
+    background-color: var(--bg-color);
+    box-shadow: var(--box-shadow);
+    padding: 2rem 0;
+    margin-top: auto;
+}
+
+footer a:hover {
+    color: var(--template-color) !important;
+}
+
+
+.table td {
+    padding: 0.75rem;
+    vertical-align: middle;
+    border-color: #eee;
+}
+
+
+@media (max-width: 768px) {
+    .main-title { font-size: 2rem; }
+    .container { padding: 0 15px; }
+    .news-grid { grid-template-columns: 1fr; }
+    .main-article { height: 300px; }
+    .card { margin-bottom: 15px; }
+    input[type="range"] { margin: 5px 0; }
+    input[type="range"]::-webkit-slider-thumb { width: 14px; height: 14px; }
+}
+
+
+#position{
+    position:fixed;
+    right:20px;
+    top:100px; /*permet d'être juste sous la bannière */
+    width:250px;
+    border:1px solid gray;
+    padding:10px;
+    background: #fff;  /* utile au-dessus d’images/vidéos */
+    z-index: 1050;
+}
+
+#masquer-article {
+
+    margin: 10px;
+
+}
+
+.art-visible {
+    position: absolute;
+    margin-top: 80px;
+    margin-left: 140px;
+
+}

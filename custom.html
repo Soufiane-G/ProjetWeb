@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personnalisation - Cinéma Belge</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
+    <script src="index.js"></script> 
+</head>
+<body>
+    <header class="main-header">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">Bilain Jaber</a>
+                 <!-- Ajout couleur JS  -->
+                   <div id="selecteur"> </div>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Accueil</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="article.html">Articles</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="custom.html">Personnalisation</a>
+                        </li>
+                    </ul>
+                    <button id="darkModeToggle" class="ms-3">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container-fluid py-4">
+        <div class="row g-4">
+            <!-- Menu latéral 1 -->
+            <div class="col-md-3">
+                <form id="customForm">
+                    <div class="card shadow-sm h-100">
+                        <div class="card-header bg-white">
+                            <h3 class="card-title h5 mb-0">Style de base</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-sm">
+                                    <tbody>
+                                        <tr>
+                                            <td><label class="form-label small">Taille du texte</label></td>
+                                            <td>
+                                                <input type="range" min="12" max="24" value="16" 
+                                                       >
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><label class="form-label small">Couleur des titres</label></td>
+                                            <td>
+                                                <input type="color" class="form-control form-control-color form-control-sm" value="#333333" 
+                                                       >
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><label class="form-label small">Style du texte</label></td>
+                                            <td>
+                                                <select class="form-select form-select-sm" 
+                                                        >
+                                                    <option value="normal">Normal</option>
+                                                    <option value="bold">Gras</option>
+                                                    <option value="italic">Italique</option>
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><label class="form-label small">Style des titres</label></td>
+                                            <td>
+                                                <select class="form-select form-select-sm" 
+                                                        >
+                                                    <option value="normal">Normal</option>
+                                                    <option value="bold">Gras</option>
+                                                    <option value="italic">Italique</option>
+                                                </select>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Menu latéral 2 -->
+            <div class="col-md-3">
+                <div class="card shadow-sm h-100">
+                    <div class="card-header bg-white">
+                        <h3 class="card-title h5 mb-0">Mise en page</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-sm">
+                                <tbody>
+                                    <tr>
+                                        <td><label class="form-label small">Épaisseur bordures</label></td>
+                                        <td>
+                                            <input type="range" min="0" max="5" value="1" step="1" 
+                                                   >
+                                                   
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><label class="form-label small">Ombrage</label></td>
+                                        <td>
+                                            <input type="range" min="0" max="20" value="4" 
+                                                   >
+                                                  
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><label class="form-label small">Espacement lettres</label></td>
+                                        <td>
+                                            <input type="range" min="-2" max="5" value="0" step="0.5" 
+                                                   >
+                                                  
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><label class="form-label small">Arrondi bordures</label></td>
+                                        <td>
+                                            <input type="range" min="0" max="20" value="4" 
+                                                   >
+                                                  
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contenu principal -->
+            <div class="col-md-6">
+                <article class="article-preview bg-white rounded shadow-sm p-4">
+                    <header class="mb-4">
+                        <div class="article-meta mb-2">
+                            <span class="badge bg-primary me-2">Cinéma belge</span>
+                            <span class="text-muted small">Publié il y a 4 heures</span> | 
+                            <span class="text-muted small">Par Adrien Corbeel</span>
+                        </div>
+                        <h1 class="article-title display-4">Ces coins de Belgique dont le cinéma raffole</h1>
+                    </header>
+
+                    <div class="article-image mb-4">
+                        <img src="https://playground.burotix.be/4IWPB/0_article_sample/39e98420b5e98bfbdc8a619bef7b8f61-1740665779.jpg" class="img-fluid rounded shadow-sm" alt="Tournage de film en Belgique">
+                    </div>
+
+                    <div class="article-summary mb-4 bg-light p-3 rounded">
+                        <p class="lead mb-0">De nombreux tournages se déroulent en Belgique. Petit tour des lieux les plus prisés par le septième art.</p>
+                    </div>
+
+                    <div class="article-body">
+                        <h2 class="h3 mb-3">Les Ardennes</h2>
+                        <p class="mb-4">Les forêts immenses et les collines pentues des Ardennes belges inspirent de nombreux cinéastes. C'est bien simple, on ne compte plus les films qui s'y déroulent, ou l'utilisent comme décor. Parmi tous les longs et courts-métrages existants, on peut notamment citer "Les Géants". Le drame de Bouli Lanners place trois adolescents désœuvrés dans son cadre ardennais. Livrés à eux-mêmes, les 3 garçons se retrouvent emportés, et nous avec, dans une grande aventure.</p>
+                        
+                        <h2 class="h3 mb-3">La Gare de Liège</h2>
+                        <p class="mb-4">Le saviez-vous ? La Gare de Liège-Guillemins apparaît dans le premier volet des "Gardiens de la Galaxie" ! Le dôme de Calatrava a tapé dans l'œil du studio Marvel, qui a intégré l'architecture futuriste de la gare au décor de planète Xandar, où les antihéros du film se rencontrent.</p>
+                        
+                        <h2 class="h3 mb-3">Bruges</h2>
+                        <p class="mb-4">Impossible de parler des lieux de cinéma en Belgique sans parler de Bruges. Et impossible de parler de Bruges, sans parler de "Bons Baisers de Bruges", la comédie criminelle mélancolique portée par Colin Farrell, Brendan Gleeson et Ralph Fiennes.</p>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-white shadow-sm mt-5">
+        <div class="container py-4">
+            <div class="row">
+                <div class="col-md-4 mb-3 mb-md-0">
+                    <h5 class="text-primary mb-3">À propos</h5>
+                    <p class="text-muted mb-0">Découvrez les dernières actualités et articles sur le cinéma belge et ses lieux de tournage.</p>
+                </div>
+                <div class="col-md-4 mb-3 mb-md-0">
+                    <h5 class="text-primary mb-3">Liens rapides</h5>
+                    <ul class="list-unstyled mb-0">
+                        <li><a href="index.html" class="text-muted text-decoration-none">Accueil</a></li>
+                        <li><a href="article.html" class="text-muted text-decoration-none">Articles</a></li>
+                        <li><a href="custom.html" class="text-muted text-decoration-none">Personnalisation</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5 class="text-primary mb-3">Contact</h5>
+                    <p class="text-muted mb-0">Email: contact@monsite.be<br>Tél: +32 2 123 45 67</p>
+                </div>
+            </div>
+            <hr class="my-4">
+            <p class="text-center text-muted mb-0">&copy; 2024 Bilain Jaber. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html> 

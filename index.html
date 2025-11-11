@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cinéma Belge - Actualités et Articles</title>
+    <link href="css/main.css" rel="stylesheet">
+
+    <script type="importmap">
+        {
+          "imports": {
+            "vue": "https://unpkg.com/vue@3/dist/vue.esm-browser.js"
+          }
+        }
+    </script>
+    <script type="module" src="app.js" defer></script>
+    <script src="index.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body id="app">
+
+<header-component>
+
+    <!-- ✅ Remplir le slot "selectors" -->
+    <template #selectors>
+        <div id="selecteur"></div>
+    </template>
+
+    <!-- ✅ Remplir le slot "counter" avec une variable Vue -->
+    <template #counter>
+        <span class="badge counter ">Nombre d'articles visibles : {{ articlesVisibles }}</span>
+
+    </template>
+
+
+</header-component>
+
+<!--ajout de la fenêtre de message d'information à cet endroit-là-->
+
+    <div id="position" class="position"> </div>
+
+
+
+<main class="container">
+
+    <h1 class="main-title">Ces coins de Belgique dont le cinéma raffole</h1>
+
+    <section class="row">
+        <section class="col-md-8">
+            <!-- afficher/masquez article-->
+
+            <button id="masquer-article">Masquer l'article </button>
+
+            <article id ="article-main" class="card info-art mb-4">
+                <img src="https://playground.burotix.be/4IWPB/0_article_sample/39e98420b5e98bfbdc8a619bef7b8f61-1740665779.jpg" class="card-img-top" alt="Tournage de film en Belgique">
+
+                <section class="card-body">
+                    <span class="badge bg-primary mb-2">Cinéma belge</span>
+                    <h4 class="h5 titre-form">Ces coins de Belgique dont le cinéma raffole</h4>
+                    <p class="card-text">De nombreux tournages se déroulent en Belgique. Petit tour des lieux les plus prisés par le septième art.</p>
+                    <footer class="d-flex justify-content-between align-items-center">
+                        <small class="text-muted">Par Adrien Corbeel • <br>05/10/2025 <br><p class="readtime"> Temps de lecture : 50 min</p> </small>
+                        <a href="article.html"  class="btn btn-primary">Lire la suite</a>
+                    </footer>
+                </section>
+
+            </article>
+            <section class="row">
+                <article class="info-art article-secondaire col-md-6 mb-4 ">
+                    <section class="card h-100">
+                        <img src="https://www.parismatch.com/lmnr/r/960,640,FFFFFF,forcex,center-middle/img/var/pm/public/styles/paysage/public/media/image/2024/04/23/17/gettyimages-1491762173.jpg" class="card-img-top" alt="Festival de Cannes">
+                        <section class="card-body">
+                            <span class="badge bg-success mb-2">Festivals</span>
+                            <h3 class="h5 titre-form">Le Festival de Cannes 2024 dévoile sa sélection</h3>
+                            <p>Découvrez les films qui seront présentés lors de la prochaine édition du festival.</p>
+                            <footer class="d-flex justify-content-between align-items-center">
+                                <small class="text-muted">Par Marie Laurent • <br>28/09/2025 <br><p class="readtime"> Temps de lecture : 25 min </p></small>
+                                <a href="#" class="btn btn-outline-primary btn-sm">Lire</a>
+                            </footer>
+                        </section>
+                    </section>
+                </article>
+
+                <article class="col-md-6 mb-4 info-art article-secondaire">
+                    <section class="card h-100">
+                        <img src="https://sf2.cnetfrance.fr/wp-content/uploads/cnet/2024/11/netflix-catalogue-janvier-2025.jpg" class="card-img-top" alt="Netflix">
+                        <section class="card-body">
+                            <span class="badge bg-danger mb-2">Streaming</span>
+                            <h3 class="h5 titre-form">Les nouveautés Netflix de mars 2024</h3>
+                            <p>Les films et séries qui arrivent sur la plateforme ce mois-ci.</p>
+                            <footer class="d-flex justify-content-between align-items-center">
+                                <small class="text-muted">Par Sophie Martin • <br>03/10/2025 <br><p class="readtime"> Temps de lecture : 30 min </p></small>
+                                <a href="#" class="btn btn-outline-primary btn-sm">Lire</a>
+                            </footer>
+                        </section>
+                    </section>
+                </article>
+            </section>
+
+            <div class="row">
+                <div class="col-md-6 mb-4 ">
+                    <article class="card article-secondaire h-100 info-art">
+                        <img src="https://www.lalibre.be/resizer/v2/NGKO6YDATVFCNHMABYNKNVBNO4.jpg?auth=e7dacb89cacdd90897d2fc9e922409192001eb8f99ee683adf5a0fbf86a60401&width=1200&height=800&quality=85&focal=2691%2C1794" class="card-img-top" alt="Cinéma français">
+                        <div class="card-body">
+                            <span class="badge bg-info mb-2">Cinéma français</span>
+                            <h3 class="card-title h5 titre-form">Le cinéma français en pleine renaissance</h3>
+                            <p class="card-text">Une nouvelle génération de réalisateurs redonne vie au cinéma français.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <small class="text-muted">Par Thomas Dubois • <br>02/10/2025 <br><p class="readtime"> Temps de lecture : 20 min </p></small>
+                                <a href="#" class="btn btn-outline-primary btn-sm">Lire</a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <article class="card article-secondaire h-100 info-art">
+                        <img src="https://i0.wp.com/www.trendymood.com/wp-content/uploads/2017/05/Documentaires-Netflix.jpg?fit=1024%2C768&ssl=1" class="card-img-top" alt="Documentaire">
+                        <div class="card-body">
+                            <span class="badge bg-warning mb-2">Documentaire</span>
+                            <h3 class="card-title h5 titre-form">Les documentaires qui font le buzz</h3>
+                            <p class="card-text">Une sélection des meilleurs documentaires du moment.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <small class="text-muted">Par Julie Bernard • <br>01/10/2025 <br><p class="readtime"> Temps de lecture : 10 min</p></small>
+                                <a href="#" class="btn btn-outline-primary btn-sm">Lire</a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <article class="card article-secondaire h-100 info-art">
+                        <img src="https://m.media-amazon.com/images/I/71ffJtgh4oL.jpg" class="card-img-top" alt="Cinéma belge">
+                        <div class="card-body">
+                            <span class="badge bg-success mb-2">Production</span>
+                            <h3 class="card-title h5 titre-form">Les coulisses du cinéma belge</h3>
+                            <p class="card-text">Découvrez les secrets de fabrication des plus grands films belges de l'année.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <small class="text-muted">Par Michel Lambert • <br>25/09/2025 <br><p class="readtime">Temps de lecture : 38 min</p></small>
+                                <a href="#" class="btn btn-outline-primary btn-sm">Lire</a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <article class="card article-secondaire h-100 info-art">
+                        <img src="https://i.ytimg.com/vi/uGclmzQx2VM/sddefault.jpg" class="card-img-top" alt="Acteurs belges">
+                        <div class="card-body">
+                            <span class="badge bg-primary mb-2">Acteurs</span>
+                            <h3 class="card-title h5 titre-form">Les acteurs belges à Hollywood</h3>
+                            <p class="card-text">Ces talents belges qui conquièrent le cinéma américain.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <small class="text-muted">Par Anne Dubois •  <br>22/09/2025 <br> <p class="readtime">Temps de lecture : 23 min<p></small>
+                                <a href="#" class="btn btn-outline-primary btn-sm">Lire</a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+
+            <!-- Boutons pour afficher plus ou moins d'articles -->
+            <div class="text-center my-4">
+                <button id="montrer-plus" class="btn btn-primary me-2">Montrer Plus</button>
+                <button id="montrer-moins" class="btn btn-secondary">Montrer Moins</button>
+            </div>
+        </section>
+        <aside class="col-md-4">
+            <!-- Ajout formulaire de recherche  -->
+            <div class="card-body card mb-4">
+                <p> <b>Recherche formulaire : </b></p>
+                <form action="" method="get" class="form-control">
+                    <label  class="col-19 col-md-5">Mot clés :    </label> <input id="motInput" class="col-12 col-md-5">
+                    <div class="mb-3">
+                        <label class="col-19 col-md-5">Durée Min : <span id="dureeMinValue">0</span> min</label>
+                        <input type="range" id="dureeMin" class="col-12 col-md-5" min="0" max="60" value="0" step="1">
+                    </div>
+                    <div class="mb-3">
+                        <label class="col-19 col-md-5">Durée Max : <span id="dureeMaxValue">60</span> min</label>
+                        <input type="range" id="dureeMax" class="col-12 col-md-5" min="0" max="60" value="60" step="1">
+                    </div>
+                    <label class="col-19 col-md-5">Nombre max d'articles :</label>
+                    <input type="number" id="nombreArticles" class="col-12 col-md-5" min="1" max="20" value="10"></form>
+                </form>
+            </div>
+            <section class="card mb-4">
+                <div class="card-body">
+                    <h4 class="h5 mb-3">À propos</h4>
+                    <p class="mb-0">Découvrez les dernières actualités et articles sur le cinéma belge et ses lieux de tournage.</p>
+                </div>
+            </section>
+            <section class="card mb-4">
+                <div class="card-body">
+                    <h4 class="h5 mb-3">Catégories</h4>
+                    <div class="list-group list-group-flush">
+                        <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center border-0">
+                            Cinéma belge
+                            <span class="badge bg-primary rounded-pill">12</span>
+                        </a>
+                        <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center border-0">
+                            Festivals
+                            <span class="badge bg-primary rounded-pill">8</span>
+                        </a>
+                        <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center border-0">
+                            Streaming
+                            <span class="badge bg-primary rounded-pill">15</span>
+                        </a>
+                        <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center border-0">
+                            Documentaires
+                            <span class="badge bg-primary rounded-pill">6</span>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <section class="card mb-4">
+                <div class="card-body">
+                    <h4 class="h5 mb-3">Articles populaires</h4>
+                    <div class="list-group list-group-flush">
+                        <a href="#" class="list-group-item list-group-item-action border-0">
+                            <h6 class="mb-1">Les meilleurs films belges de 2024</h6>
+                            <p class="mb-1 small text-muted">Une sélection des films belges qui ont marqué l'année.</p>
+                            <small class="text-primary">3 jours</small>
+                        </a>
+                        <a href="#" class="list-group-item list-group-item-action border-0">
+                            <h6 class="mb-1">Le cinéma belge à l'international</h6>
+                            <p class="mb-1 small text-muted">Comment le cinéma belge s'exporte à l'étranger.</p>
+                            <small class="text-primary">5 jours</small>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <section class="card mb-4 info-art ">
+                <div class="card-body ">
+                    <h4 class="h5 mb-3">Article en vedette</h4>
+                    <img src="https://ecran-total.fr/wp-content/uploads/2024/03/Copyright-Cinema-Palace.jpg" class="card-img-top mb-3" alt="Box-office">
+                    <span class="badge bg-danger mb-2">Box-office</span>
+                    <h3 class="h5 titre-form">Le box-office belge en chiffres</h3>
+                    <p class="small card-text">Analyse des performances des films belges dans les salles cette année.</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <small class="text-muted">Par Pierre Leroy •  <br>15/09/2025 <br><p class="readtime"> Temps de lecture : 15 min </p></small>
+                        <a href="#" class="btn btn-outline-primary btn-sm">Lire</a>
+                    </div>
+                </div>
+            </section>
+
+            <section class="card mb-4">
+                <div class="card-body">
+                    <h4 class="h5 mb-3">Newsletter</h4>
+                    <p>Restez informé de l'actualité du cinéma belge.</p>
+                    <form>
+                        <input type="email" class="form-control mb-3" placeholder="Votre email">
+                        <button type="submit" class="btn btn-primary w-100">S'inscrire</button>
+                    </form>
+                </div>
+            </section>
+
+            <section class="card mb-4 info-art">
+                <div class="card-body">
+                    <h4 class="h5 mb-3">Dernières critiques</h4>
+                    <img src="https://fr.web.img6.acsta.net/pictures/22/10/26/16/00/5597821.jpg" class="card-img-top mb-3" alt="Critique de film">
+                    <span class="badge bg-info mb-2">Critique</span>
+                    <h3 class="h5 titre-form">Close : Un chef-d'œuvre belge</h3>
+                    <p class="small card-text">Une analyse approfondie du film qui a ému le monde entier.</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <small class="text-muted">Par Marc Dumont • <br>11/09/2025 <br><p class="readtime"> Temps de lecture : 10 min</p></small>
+                        <a href="#" class="btn btn-outline-primary btn-sm">Lire</a>
+                    </div>
+                </div>
+            </section>
+
+            <section class="card mb-4 info-art">
+                <div class="card-body">
+                    <h4 class="h5 mb-3">Interview</h4>
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6__bVGu55aiIMXZBjyt8n4sTl-bJDrOHegg&s" class="card-img-top mb-3" alt="Interview">
+                    <span class="badge bg-warning mb-2">Interview</span>
+                    <h3 class="h5 titre-form">Rencontre avec Joachim Lafosse</h3>
+                    <p class="small card-text">Le réalisateur belge nous parle de son prochain film.</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <small class="text-muted">Par Claire Dubois • <br>09/09/2025 <br><p class="readtime"> Temps de lecture : 5 min</p></small>
+                        <a href="#" class="btn btn-outline-primary btn-sm">Lire</a>
+                    </div>
+                </div>
+            </section>
+        </aside>
+    </section>
+</main>
+
+<footer-component> </footer-component>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
