@@ -13,7 +13,12 @@ export default {
             default: () => ([
                 { label: "Accueil",        href: "index.html"  },
                 { label: "Articles",       href: "article.html"},
-                { label: "Personnalisation", href: "custom.html"}
+                { label: "Personnalisation", href: "custom.html"},
+                { label: "Articles", href: "articles.html", active: false },
+                { label: "Favoris", href: "favoris.html", active: false },
+                { label: "Formulaire", href: "formulaire.html", active: false },
+                { label: "Connexion", href: "connexion.html", active: false },
+                { label: "A propos", href: "apropos.html", active: false }
             ])
         },
         contact: {
@@ -52,11 +57,15 @@ export default {
     },
 
     template: `
-  <footer class="footerClasses">
+  <footer  :class="footerClasses">
     <section class="container py-4">
       <section class="row">
         <section class="col-md-4 mb-3">
-          <h5 class="text-primary mb-3">À propos</h5>
+        <a href="aPropos.html" class="text-decoration-none">
+          <h5 class="text-primary mb-3">À propos
+          
+          </h5></a>
+          
           <p class="text-muted mb-0">{{ aboutText }}</p>
         </section>
 

@@ -1,3 +1,5 @@
+import { FavoritesManager } from './FavoritesManager.js';
+
 export default {
 
     name: "ArticleList",
@@ -7,12 +9,12 @@ export default {
 
         <h1>{{ title }}</h1>
 
-        <h3 v-if="selectedArticle" >A la une</h3>
+        <h3 v-if="selectedArticle" >À la une</h3>
 
         <article v-if="selectedArticle" class="article-detail">
           <h2>{{ selectedArticle.title }}</h2>
           <p><em>{{ selectedArticle.author }}</em></p>
-          <p><img alt="illustration" v-bind:src="media_path" /></p>
+          <p><img alt="illustration" v-bind:src="media_path"></p>
           <p>{{ selectedArticle.body }}</p>
           <button @click="hideArticle(selectedArticle)" class="close-btn">
             Fermer
@@ -23,7 +25,7 @@ export default {
     
         <section class="articles">
           <article
-              v-for="article in articles.slice(0, 5)"
+              v-for="article in articles"
               :key="article.id"
               @mouseover="hoveredId = article.id"
               @mouseout="hoveredId = null"
@@ -32,9 +34,19 @@ export default {
                   'article-hover': hoveredId === article.id
                 }"
           >
+            <!-- Bouton étoile pour les favoris -->
+            <button 
+              @click="toggleFavorite(article.id)" 
+              :class="['favorite-btn', { 'is-favorite': isFavorite(article.id) }]"
+              :title="isFavorite(article.id) ? 'Retirer des favoris' : 'Ajouter aux favoris'"
+            >
+              <span class="star-icon">{{ isFavorite(article.id) ? '★' : '☆' }}</span>
+            </button>
+
             <h2>{{ article.title }}</h2>
-            <p class="article-resume">{{ article.resume }}</p>
-            <p v-if="showMore" class="article-content">{{ article.content }}</p>
+            
+            <p class="article-resume">{{ article.body }}</p>
+            <p v-if="showMore" class="article-content">{{ article.more }}</p> 
             <button @click="showArticle(article)" class="read-more-btn">
               Lire plus
             </button>
@@ -55,8 +67,9 @@ export default {
         return {
             "selectedArticle": null,
             "title": "Maquette Site de Presse / Listing",
-            "showMore": false,
+            "showMore": true,
             "hoveredId": null,
+            "favoritesIds": FavoritesManager.getFavorites(), // Charger les favoris
             "articles": [
                 {
                     "id": 1001,
@@ -317,22 +330,42 @@ export default {
             return this.articles.length;
         },
         media_path() {
-            return `./Component/Media/${this.selectedArticle.image}`
+            return `./media/${this.selectedArticle.image}`
+        },
+        favoritesCount() {
+            return this.favoritesIds.length;
         }
     },
 
     methods: {
         showArticle(art_o) {
             console.log("lire article " + art_o.id)
-            // alert(`Affichage de l'article ${id} (simulation)`);
-            // Ici, on redirige vers une page dédiée ou on affiche le contenu complet.
-            this.selectedArticle = art_o // Met à jour l'article sélectionné
+            this.selectedArticle = art_o
         },
 
         hideArticle(art_o) {
             console.log("cacher article " + art_o.id)
             this.selectedArticle = null
         },
+
+        isFavorite(articleId) {
+            return this.favoritesIds.includes(articleId);
+        },
+
+        toggleFavorite(articleId) {
+            const isFav = FavoritesManager.toggleFavorite(articleId);
+            // Mettre à jour la liste locale
+            this.favoritesIds = FavoritesManager.getFavorites();
+
+            // Émettre un événement pour mettre à jour le compteur global
+            this.$emit('favorites-updated', this.favoritesCount);
+
+            console.log(isFav ? `Article ${articleId} ajouté aux favoris` : `Article ${articleId} retiré des favoris`);
+        }
     },
 
+    mounted() {
+        // Émettre le compteur initial
+        this.$emit('favorites-updated', this.favoritesCount);
+    }
 };

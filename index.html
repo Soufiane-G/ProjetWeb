@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cinéma Belge - Actualités et Articles</title>
-    <link href="css/main.css" rel="stylesheet">
+
 
     <script type="importmap">
         {
@@ -13,13 +13,49 @@
           }
         }
     </script>
-    <script type="module" src="app.js" defer></script>
+
+    <script type="module" defer>
+        import { createApp } from "vue";
+        import HeaderComponent from "./Component/Header.js";
+        import FooterComponent from "./Component/Footer.js";
+        import ArticleList from "./Component/ArticleList.js";
+
+        const app = createApp({
+            components: { HeaderComponent , FooterComponent,ArticleList },
+            data() {
+                return {
+                    links: [
+                        { label: "Accueil", href: "index.html", active: false },
+                        { label: "Article", href: "article.html", active: false },
+                        { label: "Personnalisation", href: "custom.html", active: false },
+                        { label: "Articles", href: "articles.html", active: true },
+                        { label: "Favoris", href: "favoris.html", active: false },
+                        { label: "Formulaire", href: "formulaire.html", active: false },
+                        { label: "Connexion", href: "connexion.html", active: false },
+                        { label: "A propos", href: "apropos.html", active: false }
+                    ],
+                    articlesVisibles: 0
+                };
+            },
+            mounted() {
+
+                window.updateArticlesVisibles = (count) => {
+                    this.articlesVisibles = count;
+                };
+            }
+        });
+
+        app.mount("#app");
+    </script>
+
     <script src="index.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
+    <link href="css/favorites-styles.css" rel="stylesheet">
 </head>
 <body id="app">
 
-<header-component>
+<header-component :favorites-count="favoritesCount">
 
     <!-- ✅ Remplir le slot "selectors" -->
     <template #selectors>

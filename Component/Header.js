@@ -10,9 +10,22 @@ export default {
             type: Array,
             default: () => ([
                 { label: "Accueil", href: "index.html", active: true },
-                { label: "Articles", href: "article.html", active: false },
-                { label: "Personnalisation", href: "custom.html", active: false }
+                { label: "Article", href: "article.html", active: false },
+                { label: "Personnalisation", href: "custom.html", active: false },
+                { label: "Articles", href: "articles.html", active: false },
+                { label: "Favoris", href: "favoris.html", active: false },
+                { label: "Formulaire", href: "formulaire.html", active: false },
+                { label: "Connexion", href: "connexion.html", active: false },
+                //{ label: "A propos", href: "apropos.html", active: false }
             ])
+        },
+        favoritesCount: {
+            type: Number,
+            default: 0
+        },
+        showFavoritesCounter: {
+            type: Boolean,
+            default: true
         }
     },
 
@@ -21,13 +34,21 @@ export default {
     <nav class="navbar navbar-expand-lg">
       <div class="container">
 
-        <!-- Nom du site (prop) -->
+        <!-- Nom du site (prop) - utiliser un chemin relatif -->
         <a class="navbar-brand" href="index.html">{{ siteName }}</a>
 
         <!-- Slot pour le sélecteur de thème/police -->
         <div>
           <slot name="selectors"></slot>
         </div>
+
+        <!-- Compteur de favoris avec icône étoile -->
+        <a v-if="showFavoritesCounter" href="favoris.html" class="favorites-counter-link ms-3" title="Voir mes favoris">
+          <span class="favorites-counter">
+            <span class="star-icon-header">★</span>
+            <span class="badge bg-primary">{{ favoritesCount }}</span>
+          </span>
+        </a>
 
         <!-- Slot pour le compteur articles -->
         <span class="ms-3">
@@ -50,3 +71,9 @@ export default {
     </nav>
   </header>`
 }
+
+
+
+
+
+
