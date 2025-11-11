@@ -1,0 +1,167 @@
+/* Styles pour les boutons favoris */
+.favorite-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: rgba(255, 255, 255, 0.9);
+    border: 2px solid #ddd;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 10;
+    padding: 0;
+}
+
+.favorite-btn:hover {
+    background: #fff;
+    border-color: #ffc107;
+    transform: scale(1.1);
+}
+
+.favorite-btn.is-favorite {
+    background: #ffc107;
+    border-color: #ffc107;
+}
+
+.favorite-btn.is-favorite:hover {
+    background: #ffb300;
+    border-color: #ffb300;
+}
+
+.star-icon {
+    font-size: 1.5rem;
+    color: #666;
+    line-height: 1;
+}
+
+.favorite-btn.is-favorite .star-icon {
+    color: #fff;
+}
+
+/* Compteur de favoris dans le header */
+.favorites-counter-link {
+    text-decoration: none;
+    color: inherit;
+    display: inline-block;
+    transition: transform 0.2s ease;
+}
+
+.favorites-counter-link:hover {
+    transform: scale(1.05);
+}
+
+.favorites-counter {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 0.4em 0.8em;
+    background-color: #fff3cd;
+    border: 2px solid #ffc107;
+    border-radius: 20px;
+    font-weight: 600;
+}
+
+.star-icon-header {
+    font-size: 1.2rem;
+    color: #ffc107;
+}
+
+.favorites-counter .badge {
+    background-color: #ffc107 !important;
+    color: #000;
+    font-size: 0.9rem;
+    padding: 0.3em 0.6em;
+}
+
+/* Styles pour les cartes d'articles avec position relative pour le bouton favori */
+.article-card {
+    position: relative;
+    padding: 1.5rem;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.article-card:hover {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    transform: translateY(-2px);
+}
+
+.article-hover {
+    border-color: var(--primary-color);
+}
+
+/* Ajustements pour les cartes Bootstrap existantes */
+.card {
+    position: relative;
+}
+
+/* Animation pour l'ajout/retrait des favoris */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.favorite-btn:active {
+    animation: pulse 0.3s ease;
+}
+
+/* Style pour la page des favoris */
+.alert-info {
+    background-color: #d1ecf1;
+    border-color: #bee5eb;
+    color: #0c5460;
+    padding: 1.5rem;
+    border-radius: 8px;
+}
+
+/* Modal pour l'affichage détaillé */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1050;
+    overflow-y: auto;
+}
+
+.modal-dialog {
+    margin: 3rem auto;
+}
+
+.modal-content {
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .favorite-btn {
+        width: 35px;
+        height: 35px;
+    }
+
+    .star-icon {
+        font-size: 1.2rem;
+    }
+
+    .favorites-counter {
+        padding: 0.3em 0.6em;
+        font-size: 0.9rem;
+    }
+}
