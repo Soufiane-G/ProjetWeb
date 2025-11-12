@@ -43,6 +43,14 @@
         });
     }
 
+    // Fonction pour mettre à jour le compteur Vue
+    function updateArticlesCounter() {
+        const visibles = document.querySelectorAll('.info-art:not([style*="display: none"])').length;
+        if (window.updateArticlesCount) {
+            window.updateArticlesCount(visibles);
+        }
+    }
+
     //Affichez/Masquer l'article
     const article = document.getElementById("article-main");
     const bouton = document.getElementById("masquer-article");
@@ -59,6 +67,7 @@
                 bouton.textContent = "Masquer l'article";
                 articlePrincipalMasque = false;
             }
+            updateArticlesCounter();
             appliquerFiltres();
         });
     }
@@ -110,6 +119,7 @@
                     afficherArticle = articleSecondaire.length;
                 }
                 AfficherArticles();
+                updateArticlesCounter();
                 appliquerFiltres();
             }
         });
@@ -123,12 +133,13 @@
                     afficherArticle = 0;
                 }
                 AfficherArticles();
+                updateArticlesCounter();
                 appliquerFiltres();
             }
         });
     }
 
     AfficherArticles();
+    updateArticlesCounter(); // Initialiser le compteur au chargement
 
-  
 });
