@@ -28,14 +28,22 @@
                         { label: "Accueil", href: "index.html", active: false },
                         { label: "Article", href: "article.html", active: false },
                         { label: "Personnalisation", href: "custom.html", active: false },
-                        { label: "Articles", href: "articles.html", active: true },
+                        { label: "Articles", href: "articles.html", active: false },
                         { label: "Favoris", href: "favoris.html", active: false },
                         { label: "Formulaire", href: "formulaire.html", active: false },
-                        { label: "Connexion", href: "connexion.html", active: false },
+                        { label: "Connexion", href: "connexion.html", active: true },
                         { label: "A propos", href: "apropos.html", active: false }
                     ],
                     articlesVisibles: 0
                 };
+            },
+            methods: {
+                handleLogin(){
+                    console.log("Email :", this.email);
+                    console.log("Password:", this.Motdepasse);
+                    console.log("Se souvenir de moi", this.rememberMe);
+                    
+                }
             }
         });
 
@@ -49,13 +57,71 @@
 </head>
 <body id="app">
 
-<header-component>
+<header-component :favorites-count="0">
+
+</header-component>
 
 
 </header-component>
 
 
-<main> </main>
+<main class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6 col-lg-5">
+            <div class="card mt-5 mb-5">
+                <div class="card-body p-4">
+                    <h3 class="card-title text-center mb-4">Se connecter</h3>
+                    
+                    <form @submit.prevent="handleLogin">
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email :</label>
+                            <input 
+                                type="email" 
+                                class="form-control" 
+                                id="email" 
+                                v-model="email"
+                                placeholder="votre.email@exemple.com"
+                                required
+                            >
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Mot de passe :</label>
+                            <input 
+                                type="password" 
+                                class="form-control" 
+                                id="password" 
+                                v-model="password"
+                                placeholder="************"
+                                required
+                            >
+                        </div>
+                        
+                        <div class="mb-3 form-check">
+                            <input 
+                                type="checkbox" 
+                                class="form-check-input" 
+                                id="rememberMe"
+                                v-model="rememberMe"
+                            >
+                            <label class="form-check-label" for="rememberMe">
+                                Se souvenir de moi
+                            </label>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary w-100 mb-3">
+                            Se connecter
+                        </button>
+                        
+                        <div class="text-center">
+                            <a href="#" class="text-decoration-none">Mot de passe oublié ?</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
 
 
 <footer-component> </footer-component>

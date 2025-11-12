@@ -19,9 +19,10 @@
         import HeaderComponent from "./Component/Header.js";
         import FooterComponent from "./Component/Footer.js";
         import ArticleList from "./Component/ArticleList.js";
+        import SearchForm from "./Component/SearchForm.js";
 
         const app = createApp({
-            components: { HeaderComponent , FooterComponent,ArticleList },
+            components: { HeaderComponent , FooterComponent,ArticleList,SearchForm },
             data() {
                 return {
                     links: [
@@ -34,13 +35,20 @@
                         { label: "Connexion", href: "connexion.html", active: false },
                         { label: "A propos", href: "apropos.html", active: false }
                     ],
-                    articlesVisibles: 0
+                    articlesVisibles: 0,
+                    favoritesCount : 0
                 };
+            },
+            methods: {
+                updateArticlesCount(count) {
+                    this.articlesVisibles = count;
+                }
             },
             mounted() {
 
-                window.updateArticlesVisibles = (count) => {
-                    this.articlesVisibles = count;
+                window.updateArticlesCount = (count) => {
+                    this.articlesVisibles = count;  
+                    
                 };
             }
         });
@@ -203,22 +211,8 @@
         </section>
         <aside class="col-md-4">
             <!-- Ajout formulaire de recherche  -->
-            <div class="card-body card mb-4">
-                <p> <b>Recherche formulaire : </b></p>
-                <form action="" method="get" class="form-control">
-                    <label  class="col-19 col-md-5">Mot clés :    </label> <input id="motInput" class="col-12 col-md-5">
-                    <div class="mb-3">
-                        <label class="col-19 col-md-5">Durée Min : <span id="dureeMinValue">0</span> min</label>
-                        <input type="range" id="dureeMin" class="col-12 col-md-5" min="0" max="60" value="0" step="1">
-                    </div>
-                    <div class="mb-3">
-                        <label class="col-19 col-md-5">Durée Max : <span id="dureeMaxValue">60</span> min</label>
-                        <input type="range" id="dureeMax" class="col-12 col-md-5" min="0" max="60" value="60" step="1">
-                    </div>
-                    <label class="col-19 col-md-5">Nombre max d'articles :</label>
-                    <input type="number" id="nombreArticles" class="col-12 col-md-5" min="1" max="20" value="10"></form>
-                </form>
-            </div>
+            <search-form @articles-updated="updateArticlesCount"></search-form>
+
             <section class="card mb-4">
                 <div class="card-body">
                     <h4 class="h5 mb-3">À propos</h4>

@@ -71,8 +71,7 @@ export default {
     </nav>
   </header>`
 }
-
-
+    
 
 
 

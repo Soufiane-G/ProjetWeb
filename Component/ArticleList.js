@@ -33,6 +33,7 @@ export default {
                   'article-card': true,
                   'article-hover': hoveredId === article.id
                 }"
+                :data-reading-time="article.readingTime"
           >
             <!-- Bouton étoile pour les favoris -->
             <button 
@@ -43,7 +44,7 @@ export default {
               <span class="star-icon">{{ isFavorite(article.id) ? '★' : '☆' }}</span>
             </button>
 
-            <h2>{{ article.title }}</h2>
+            <h2 ref="titreArt" class="article-title-bd">{{ article.title }}</h2>
             
             <p class="article-resume">{{ article.body }}</p>
             <p v-if="showMore" class="article-content">{{ article.more }}</p> 
@@ -362,10 +363,16 @@ export default {
 
             console.log(isFav ? `Article ${articleId} ajouté aux favoris` : `Article ${articleId} retiré des favoris`);
         }
+          
+      
     },
 
     mounted() {
         // Émettre le compteur initial
         this.$emit('favorites-updated', this.favoritesCount);
-    }
-};
+       
+        
+      
+}       
+}
+    
